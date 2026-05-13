@@ -59,6 +59,19 @@ nav .nav-buttons .active {
     background-color: #EDEDED;
 }
 
+.main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* grid-template-rows: 1fr 1fr 1fr; */
+    background-color: orange;
+    border: 2px solid black;
+    gap: 10rem;
+}
+
+.main div {
+    border: 10px solid green;
+}
+
 
 
 
