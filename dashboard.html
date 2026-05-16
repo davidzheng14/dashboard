@@ -66,9 +66,9 @@
         </div>
 
         <div class="patient">
-            <div id="test">
-                Jessica
-            </div>
+            <div id="active-name"></div>
+            <div id="active-dob"></div>
+            <div id="active-gender"></div>
             <div>
                 Lab Result
             </div>
@@ -82,7 +82,7 @@
         let username = 'coalition';
         let password = 'skills-test';
         let auth = btoa(`${username}:${password}`);
-        let info;
+        let patients;
 
 
         fetch("https://fedskillstest.coalitiontechnologies.workers.dev/", {
@@ -92,12 +92,16 @@
         })
         .then(response => response.json())
         .then(data => {
-            info = data;
-            console.log(info[0].name);
-            document.getElementById('test').textContent = info[0].name;
+            patients = data;
+            console.log(patients);
+            document.getElementById('active-name').textContent = patients[3].name;
+            document.getElementById('active-dob').textContent = patients[3].date_of_birth;
+            document.getElementById('active-gender').textContent = patients[3].gender;
         })
         .catch(error => console.error(error));
 
+        
+        
         
     </script>
 
