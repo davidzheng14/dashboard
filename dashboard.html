@@ -3,44 +3,7 @@
     <title>HealthCare Dashboard</title>
     <link rel="stylesheet" href="dashboard.css">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
-    <script>
-
-        let username = 'coalition';
-        let password = 'skills-test';
-        let auth = btoa(`${username}:${password}`);
-        let patients;
-        function populatePatients(patients) {
-            return(
-                <div>asd</div>
-            );
-        }
-        
-
-        fetch("https://fedskillstest.coalitiontechnologies.workers.dev/", {
-            headers: {
-                'Authorization' : `Basic ${auth}`
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            patients = data;
-            // console.log(patients);
-            // document.getElementById('active-name').textContent = patients[3].name;
-            // document.getElementById('active-dob').textContent = patients[3].date_of_birth;
-            // document.getElementById('active-gender').textContent = patients[3].gender;
-            // patients.map(a => {
-            //     return(
-            //         <div>a.name</div>
-            //     );
-            // })
-            const patientList = document.get
-        })
-        .catch(error => console.error(error));
-
-        
-        
-        
-    </script>
+    
 </head>
 <body>
     <nav>
@@ -90,11 +53,15 @@
     </nav>
 
     <div class="main">
-        <div class="patient-list" onClick={populatePatients}>
+        <div class="patients-section">
             <div class="search-bar">
                     Patients
                     <img src="/assets/SearchIcon.svg">
             </div>
+            <div class="patient-list">
+
+            </div>
+            <div>asd</div>
         </div>
 
         <div class="diagnostic">
@@ -107,16 +74,88 @@
         </div>
 
         <div class="patient">
-            <div id="active-name"></div>
-            <div id="active-dob"></div>
-            <div id="active-gender"></div>
+            <div>
+                <div class="profile-picture"></div>
+                <div class="name-active"></div>
+                <div>
+                    <img>
+                    <div>
+                        <img src="/assets/BirthIcon.svg">
+                        <div>Date Of Birth</div>
+                        <div class="date-of-birth"></div>
+                    </div>
+                    <div>
+                        <img src="/assets/FemaleIcon.svg">
+                        <div>Gender</div>
+                        <div class="gender"></div>
+                    </div>
+                    <div>
+                        <img src="/assets/PhoneIcon.svg">
+                        <div>Contact Info.</div>
+                        <div class="phone-number"></div>
+                    </div>
+                    <div>
+                        <img src="/assets/PhoneIcon.svg">
+                        <div>Emergency Contacts</div>
+                        <div class="emergency-contact"></div>
+                    </div>
+                    <div>
+                        <img src="/assets/InsuranceIcon.svg">
+                        <div>Imsurance Provided</div>
+                        <div class="insurance-type"></div>
+                    </div>
+                </div>
+                <div>Show All Information</div>
+            </div>
             <div>
                 Lab Result
             </div>
         </div>
     </div>
 
+    <script>
 
+        let username = 'coalition';
+        let password = 'skills-test';
+        let auth = btoa(`${username}:${password}`);
+        let patients;
+        
+        fetch("https://fedskillstest.coalitiontechnologies.workers.dev/", {
+            headers: {
+                'Authorization' : `Basic ${auth}`
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            patients = data;
+            
+            
+            document.querySelector('.patient-list').innerHTML = patients.map(patient => `
+                <div class="panel">
+                    <div class="panel-left">
+                        <img src="${patient.profile_picture}">
+                        <div>
+                            <div class="name">${patient.name}</div>
+                            <div class="gender-age">${patient.gender}, ${patient.age}</div>
+                        </div>
+                    </div>
+                    <img src="/assets/HoriIcon.svg">
+                </div>
+            `).join('');
+
+            document.querySelector('.profile-picture').innerHTML = `<img src="${patients[3].profile_picture}">`;
+            document.querySelector('.name-active').innerHTML = `<div>${patients[3].name}</div>`;
+            document.querySelector('.date-of-birth').innerHTML = `<div>${patients[3].date_of_birth}<div>`;
+            document.querySelector('.gender').innerHTML = `<div>${patients[3].gender}</div>`;
+            
+            document.querySelector('.constact').innerHTML = `<div>${patients[3].gender}</div>`;
+        })
+        .catch(error => console.error(error));
+
+        
+        
+        
+    </script>
 
     
 

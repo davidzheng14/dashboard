@@ -70,7 +70,7 @@ nav .nav-buttons .active {
 .main div {
 }
 
-.patient-list, .diagnostic, .patient{
+.patients-section, .diagnostic, .patient{
     background-color: white;
     border-radius: 1rem;
     padding: 1rem;
@@ -80,8 +80,32 @@ nav .nav-buttons .active {
     display: flex;
     justify-content: space-between;
     font-size: 1.5rem;
-    background-color: green;
+    margin: 15px;
+    font-weight: 700;
 }
 
+.panel {
+    display: flex;
+    justify-content: space-between;
+    
+    margin: 10px;
+}
 
+.panel-left img{
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+}
 
+.panel-left {
+    display: flex;
+    align-items: center;
+}
+
+.panel-left .name {
+    font-weight: bold;
+}
+
+.panel-left .gender-age {
+    font-weight: 200;
+}
