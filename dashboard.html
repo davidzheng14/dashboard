@@ -53,15 +53,16 @@
     </nav>
 
     <div class="main">
-        <div class="patients-section">
-            <div class="search-bar">
+        <div class="patients">
+            <div class="patients-header">
                     Patients
                     <img src="/assets/SearchIcon.svg">
             </div>
-            <div class="patient-list">
-
+            <div class="patients-body">
+                <div class="patients-list"></div>
+                <div class="patients-scrollbar"></div>
             </div>
-            <div>asd</div>
+            
         </div>
 
         <div class="diagnostic">
@@ -130,10 +131,10 @@
             patients = data;
             
             
-            document.querySelector('.patient-list').innerHTML = patients.map(patient => `
-                <div class="panel">
-                    <div class="panel-left">
-                        <img src="${patient.profile_picture}">
+            document.querySelector('.patients-list').innerHTML = patients.map(patient => `
+                <div class="patient-card">
+                    <div class="patient-card-left">
+                        <img class="patient-picture" src="${patient.profile_picture}">
                         <div>
                             <div class="name">${patient.name}</div>
                             <div class="gender-age">${patient.gender}, ${patient.age}</div>

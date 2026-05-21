@@ -67,45 +67,59 @@ nav .nav-buttons .active {
     margin: 1rem;
 }
 
-.main div {
-}
-
-.patients-section, .diagnostic, .patient{
+.patients, .diagnostic, .patient{
     background-color: white;
     border-radius: 1rem;
-    padding: 1rem;
+    padding: .3rem;
 }
 
-.search-bar {
+.patients-header {
     display: flex;
     justify-content: space-between;
     font-size: 1.5rem;
     margin: 15px;
-    font-weight: 700;
+    font-weight: 800;
 }
-
-.panel {
+.patients-body {
     display: flex;
     justify-content: space-between;
     
-    margin: 10px;
 }
-
-.panel-left img{
-    width: 50px;
-    height: 50px;
-    margin: 10px;
+.patients-list {
+    flex: 1;
+    overflow-y: auto;
+    max-height: 80vh;
 }
-
-.panel-left {
+.patients-list::-webkit-scrollbar {
+    
+}
+.patients-list::-webkit-scrollbar-button {
+    display: none;
+}
+.patients-body::-webkit-scrollbar-button {
+    display: none;
+}
+.patients-list::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+}
+.patients-scrollbar {
+    background-color: #E3E4E6;
+    width: 6px;
+    border-radius: 3px;
+    
+}
+.patient-card {
+    display: flex;
+    justify-content: space-between;
+    
+}
+.patient-card-left{
     display: flex;
     align-items: center;
 }
-
-.panel-left .name {
-    font-weight: bold;
+.patient-picture {
+    width: 3rem;
+    height: 3rem;
 }
 
-.panel-left .gender-age {
-    font-weight: 200;
-}
