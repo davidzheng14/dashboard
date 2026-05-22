@@ -58,11 +58,7 @@
                     Patients
                     <img src="/assets/SearchIcon.svg">
             </div>
-            <div class="patients-body">
-                <div class="patients-list"></div>
-                <div class="patients-scrollbar"></div>
-            </div>
-            
+            <div class="patients-list"></div>
         </div>
 
         <div class="diagnostic">
@@ -75,41 +71,53 @@
         </div>
 
         <div class="patient">
-            <div>
-                <div class="profile-picture"></div>
-                <div class="name-active"></div>
+            <div class="patient-top">
+                <div class="patient-header">
+                    <div class="profile-picture"></div>
+                    <div class="patient-name"></div>
+                </div>
                 <div>
                     <img>
-                    <div>
-                        <img src="/assets/BirthIcon.svg">
-                        <div>Date Of Birth</div>
-                        <div class="date-of-birth"></div>
+                    <div class="patient-info">
+                        <img class="patient-icon" src="/assets/BirthIcon.svg">
+                        <div>
+                            <div>Date Of Birth</div>
+                            <div class="date-of-birth"></div>
+                        </div>
                     </div>
-                    <div>
-                        <img src="/assets/FemaleIcon.svg">
-                        <div>Gender</div>
-                        <div class="gender"></div>
+                    <div class="patient-info">
+                        <img class="patient-icon" src="/assets/FemaleIcon.svg">
+                        <div>
+                            <div>Gender</div>
+                            <div class="gender"></div>
+                        </div>
                     </div>
-                    <div>
-                        <img src="/assets/PhoneIcon.svg">
-                        <div>Contact Info.</div>
-                        <div class="phone-number"></div>
+                    <div class="patient-info">
+                        <img class="patient-icon" src="/assets/PhoneIcon.svg">
+                        <div>
+                            <div>Contact Info.</div>
+                            <div class="phone-number"></div>
+                        </div>
                     </div>
-                    <div>
-                        <img src="/assets/PhoneIcon.svg">
-                        <div>Emergency Contacts</div>
-                        <div class="emergency-contact"></div>
+                    <div class="patient-info">
+                        <img class="patient-icon" src="/assets/PhoneIcon.svg">
+                        <div>
+                            <div>Emergency Contacts</div>
+                            <div class="emergency-contact"></div>
+                        </div>
                     </div>
-                    <div>
-                        <img src="/assets/InsuranceIcon.svg">
-                        <div>Imsurance Provided</div>
-                        <div class="insurance-type"></div>
+                    <div class="patient-info">
+                        <img class="patient-icon" src="/assets/InsuranceIcon.svg">
+                        <div>
+                            <div>Insurance Provider</div>
+                            <div class="insurance-type"></div>
+                        </div>
                     </div>
                 </div>
-                <div>Show All Information</div>
+                <div class="patient-footer">Show All Information</div>
             </div>
-            <div>
-                Lab Result
+            <div class="patient-bottom">
+                <div class="lab-result">Lab Result</div>
             </div>
         </div>
     </div>
@@ -145,11 +153,13 @@
             `).join('');
 
             document.querySelector('.profile-picture').innerHTML = `<img src="${patients[3].profile_picture}">`;
-            document.querySelector('.name-active').innerHTML = `<div>${patients[3].name}</div>`;
-            document.querySelector('.date-of-birth').innerHTML = `<div>${patients[3].date_of_birth}<div>`;
-            document.querySelector('.gender').innerHTML = `<div>${patients[3].gender}</div>`;
+            document.querySelector('.patient-name').innerHTML = `<div>${patients[3].name}</div>`;
+            document.querySelector('.date-of-birth').innerHTML = `<div class="patient-text">${patients[3].date_of_birth}<div>`;
+            document.querySelector('.gender').innerHTML = `<div class="patient-text">${patients[3].gender}</div>`;
+            document.querySelector('.phone-number').innerHTML = `<div class="patient-text">${patients[3].phone_number}</div>`;
+            document.querySelector('.emergency-contact').innerHTML = `<div class="patient-text">${patients[3].emergency_contact}</div>`;
+            document.querySelector('.insurance-type').innerHTML = `<div class="patient-text">${patients[3].insurance_type}</div>`;
             
-            document.querySelector('.constact').innerHTML = `<div>${patients[3].gender}</div>`;
         })
         .catch(error => console.error(error));
 

@@ -63,15 +63,17 @@ nav .nav-buttons .active {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     /* grid-template-rows: 1fr 1fr 1fr; */
-    gap: 5rem;
+    gap: 2rem;
     margin: 1rem;
 }
 
-.patients, .diagnostic, .patient{
+.patients, .diagnostic{
     background-color: white;
     border-radius: 1rem;
     padding: .3rem;
+    margin: 1rem 0;
 }
+
 
 .patients-header {
     display: flex;
@@ -80,39 +82,25 @@ nav .nav-buttons .active {
     margin: 15px;
     font-weight: 800;
 }
-.patients-body {
-    display: flex;
-    justify-content: space-between;
-    
-}
 .patients-list {
     flex: 1;
     overflow-y: auto;
     max-height: 80vh;
 }
-.patients-list::-webkit-scrollbar {
-    
-}
-.patients-list::-webkit-scrollbar-button {
-    display: none;
-}
-.patients-body::-webkit-scrollbar-button {
-    display: none;
-}
-.patients-list::-webkit-scrollbar-button {
-    width: 0;
-    height: 0;
-}
-.patients-scrollbar {
-    background-color: #E3E4E6;
-    width: 6px;
-    border-radius: 3px;
-    
-}
 .patient-card {
     display: flex;
     justify-content: space-between;
-    
+    align-items: center;
+    padding: 1rem;
+}
+.patient-card:nth-child(4) {
+    background-color: #D8FCF7;
+}
+.patient-card .name {
+    font-weight: bold;
+}
+.patient-card .gender-age {
+    font-weight: 100;
 }
 .patient-card-left{
     display: flex;
@@ -121,5 +109,63 @@ nav .nav-buttons .active {
 .patient-picture {
     width: 3rem;
     height: 3rem;
+    margin-right: 1rem;
 }
 
+
+
+.patient {
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.patient-top {
+    background-color: #FFFFFF;
+    border-radius: 1rem;
+}
+.patient-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding-top: 2rem;
+}
+.profile-picture img{
+    width: 15rem;
+    height: 15rem;
+}
+.patient-name {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.patient-info {
+    display: flex;
+    align-items: center;
+}
+.patient-icon {
+    padding: 1rem;
+}
+.patient-text {
+    font-weight: 700;
+}
+.patient-footer {
+    align-items: center;
+    font-weight: 700;
+    background-color: #01F0D0;
+    border-radius: 50px;
+    width: fit-content;
+    margin: 2rem auto;
+    padding: .5rem 2.5rem;
+
+}
+.patient-bottom {
+    background-color: #FFFFFF;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+.lab-result {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
