@@ -85,7 +85,7 @@ nav .nav-buttons .active {
 .patients-list {
     flex: 1;
     overflow-y: auto;
-    max-height: 80vh;
+    max-height: 100vh;
 }
 .patient-card {
     display: flex;
@@ -123,6 +123,7 @@ nav .nav-buttons .active {
 .patient-top {
     background-color: #FFFFFF;
     border-radius: 1rem;
+    padding: 1.5rem;
 }
 .patient-header {
     display: flex;
@@ -143,9 +144,9 @@ nav .nav-buttons .active {
 .patient-info {
     display: flex;
     align-items: center;
+    padding: .5rem;
 }
 .patient-icon {
-    padding: 1rem;
 }
 .patient-text {
     font-weight: 700;
@@ -156,16 +157,31 @@ nav .nav-buttons .active {
     background-color: #01F0D0;
     border-radius: 50px;
     width: fit-content;
-    margin: 2rem auto;
+    margin: 1rem auto;
     padding: .5rem 2.5rem;
 
 }
 .patient-bottom {
     background-color: #FFFFFF;
-    padding: 1rem;
     border-radius: 1rem;
+    padding: 1.5rem;
 }
-.lab-result {
+
+.lab-results {
     font-size: 1.5rem;
     font-weight: 800;
+}
+.result {
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem;
+    
+}
+.results-list{
+    overflow-y: auto;
+    max-height: 9rem;
+    margin: 1rem;
+}
+.result:nth-child(2) {
+    background-color: #F6F7F8;
 }

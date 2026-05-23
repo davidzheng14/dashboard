@@ -63,10 +63,10 @@
 
         <div class="diagnostic">
             <div>
-                Diagnosis History
+                <div>Diagnosis History</div>
             </div>
             <div>
-                Diagnostic List
+                <div>Diagnostic List</div>
             </div>
         </div>
 
@@ -117,7 +117,8 @@
                 <div class="patient-footer">Show All Information</div>
             </div>
             <div class="patient-bottom">
-                <div class="lab-result">Lab Result</div>
+                <div class="lab-results">Lab Results</div>
+                <div class="results-list"></div>
             </div>
         </div>
     </div>
@@ -159,7 +160,15 @@
             document.querySelector('.phone-number').innerHTML = `<div class="patient-text">${patients[3].phone_number}</div>`;
             document.querySelector('.emergency-contact').innerHTML = `<div class="patient-text">${patients[3].emergency_contact}</div>`;
             document.querySelector('.insurance-type').innerHTML = `<div class="patient-text">${patients[3].insurance_type}</div>`;
-            
+
+            document.querySelector('.results-list').innerHTML = patients[3].lab_results.map(result => `
+                <div class="result">
+                    <div>${result}</div>
+                    <img src="assets/DownloadIcon.svg">
+                </div>
+            `).join('');
+                
+
         })
         .catch(error => console.error(error));
 
@@ -167,6 +176,8 @@
         
         
     </script>
+
+    
 
     
 
