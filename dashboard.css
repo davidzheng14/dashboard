@@ -74,6 +74,7 @@ nav .nav-buttons .active {
     margin: 1rem 0;
 }
 
+/* ---------------------------------------------------------- PATIENTS! ---------------------------------------------------------- */
 
 .patients-header {
     display: flex;
@@ -111,6 +112,51 @@ nav .nav-buttons .active {
     height: 3rem;
     margin-right: 1rem;
 }
+
+
+
+/* ---------------------------------------------------------- DIAGNOSTIC! ---------------------------------------------------------- */
+
+
+
+.diagnostic {
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.diagnosis-history-bottom {
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+}
+.diagnosis-history {
+    background-color: #FFFFFF;
+}
+.diagnostic-list {
+    background-color: #FFFFFF;
+}
+.lung {
+    background-color: #E0F3FA;
+}
+.temperature {
+    background-color: #FFE6E9;
+}
+.heart {
+    background-color: #FFE6F1;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ---------------------------------------------------------- PATIENT! ---------------------------------------------------------- */
 
 
 
