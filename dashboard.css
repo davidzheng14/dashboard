@@ -6,7 +6,7 @@
 
 body {
     /* background: #F6F7F8; */
-    background: #8b98a5;
+    background: #F6F7F8;
 }
 
 nav {
@@ -145,9 +145,14 @@ nav .nav-buttons .active {
 .heart {
     background-color: #FFE6F1;
 }
+.diagnosis-history-top {
+    background-color: #F4F0FE;
+}
 
-
-
+.diag {
+    display: grid;
+    grid-template-columns: 2fr 3fr 1fr;
+}
 
 
 

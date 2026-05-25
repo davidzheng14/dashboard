@@ -66,25 +66,40 @@
             <div class="diagnosis-history">
                 <div>Diagnosis History</div>
                 <div class="diagnosis-history-top">
-                    CHART!
+                    <div>Blood Pressure</div>
+                    <div>Last 6 Months</div>
+                    <img src="assets/ExpandIcon.svg">
+                    <canvas class="chart"></canvas>
                 </div>
                 <div class="diagnosis-history-bottom">
                     <div class="lung">
                         <img src="assets/LungIcon.svg">
                         <div>Respiratory Rate</div>
+                        <div class="respiratory-rate"></div>
+                        <div class="respiratory-levels"></div>
                     </div>
                     <div class="temperature">
                         <img src="assets/TemperatureIcon.svg">
                         <div>Temperature</div>
+                        <div class="temperature-value"></div>
+                        <div class="temperature-levels"></div>
                     </div>
                     <div class="heart">
                         <img src="assets/HeartIcon.svg">
                         <div>Heart Rate</div>
+                        <div class="heart-rate"></div>
+                        <div class="heart-levels"></div>
                     </div>
                 </div>
             </div>
             <div class="diagnostic-list">
                 <div>Diagnostic List</div>
+                <div class="diag">
+                    <div>Problem/Diagnosis</div>
+                    <div>Description</div>
+                    <div>Status</div>
+                </div>
+                <div class="chartdata"></div>
             </div>
         </div>
         <!---------------------------------------------------------- PATIENT! ---------------------------------------------------------->
@@ -141,6 +156,8 @@
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script>
 
         let username = 'coalition';
@@ -186,6 +203,43 @@
                 </div>
             `).join('');
                 
+            document.querySelector('.respiratory-rate').innerHTML = `<div>${patients[3].diagnosis_history[0].respiratory_rate.value} bpm</div>`;
+            document.querySelector('.respiratory-levels').innerHTML = `<div>${patients[3].diagnosis_history[0].respiratory_rate.levels}</div>`;
+            document.querySelector('.temperature-value').innerHTML = `<div>${patients[3].diagnosis_history[0].temperature.value} °F</div>`;
+            document.querySelector('.temperature-levels').innerHTML = `<div>${patients[3].diagnosis_history[0].temperature.levels}</div>`;
+            document.querySelector('.heart-rate').innerHTML = `<div>${patients[3].diagnosis_history[0].heart_rate.value} bpm</div>`;
+            document.querySelector('.heart-levels').innerHTML = `<img src="assets/ArrowDownIcon.svg"><div>${patients[3].diagnosis_history[0].heart_rate.levels}</div>`;
+
+            document.querySelector('.chartdata').innerHTML = patients[3].diagnosis_history.map(x => `
+                <div>${x.blood_pressure.systolic.value}</div>
+            `).slice(0,6).reverse();
+
+            const ctx = document.getElementsByClassName('chart');
+
+            new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Oct, 2023', 'Nov, 2023', 'Dec, 2023', 'Jan, 2024', 'Feb, 2024', 'Mar, 2024'],
+                datasets: [{
+                    label: 'Systolic',
+                    data: patients[3].diagnosis_history.map(x => x.blood_pressure.systolic.value).slice(0,6).reverse(),
+                    borderWidth: 1
+                },{
+                    label: 'Diastolic',
+                    data: patients[3].diagnosis_history.map(x => x.blood_pressure.diastolic.value).slice(0,6).reverse(),
+                    borderWidth: 1
+                }
+                ]
+                },
+            options: {
+                scales: {
+                    y: {
+                    beginAtZero: false
+                    }
+                },
+                tension: .4,
+                }
+        });
 
         })
         .catch(error => console.error(error));
@@ -194,6 +248,8 @@
         
         
     </script>
+
+    
 
     
 
