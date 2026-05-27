@@ -67,24 +67,27 @@ nav .nav-buttons .active {
     margin: 1rem;
 }
 
-.patients, .diagnostic{
+/* .patients, .diagnostic{
     background-color: white;
     border-radius: 1rem;
     padding: .3rem;
     margin: 1rem 0;
-}
+} */
 
 /* ---------------------------------------------------------- PATIENTS! ---------------------------------------------------------- */
 
+.patients {
+    background-color: white;
+    border-radius: 1rem;
+}
 .patients-header {
     display: flex;
     justify-content: space-between;
     font-size: 1.5rem;
-    margin: 15px;
     font-weight: 800;
+    padding: 1.5rem;
 }
 .patients-list {
-    flex: 1;
     overflow-y: auto;
     max-height: 100vh;
 }
@@ -125,17 +128,49 @@ nav .nav-buttons .active {
     flex-direction: column;
     gap: 2rem;
 }
-.diagnosis-history-bottom {
-    display: flex;
-    justify-content: space-around;
-    gap: 2rem;
+.diagnosis-history-text {
+    font-size: 1.5rem;
+    font-weight: 800;
 }
 .diagnosis-history {
     background-color: #FFFFFF;
+    padding: 1.5rem;
+    border-radius: 1rem;
 }
-.diagnostic-list {
-    background-color: #FFFFFF;
+.diagnosis-history-top {
+    background-color: #F4F0FE;
+    display: flex;
+    padding: 1rem;
+    border-radius: 1rem;
 }
+.chart-container{
+    width: 40rem;
+    height: 20rem;
+}
+.chart-top {
+    display: flex;
+    justify-content: space-between;
+    max-width: 38rem;
+}
+.chart-top-right {
+    display: flex;
+    white-space: nowrap;
+    background-color: orange;
+}
+.blood-pressure-text {
+    font-weight: 700;
+    
+}
+
+
+
+.diagnosis-history-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+}
+
+
 .lung {
     background-color: #E0F3FA;
 }
@@ -145,19 +180,19 @@ nav .nav-buttons .active {
 .heart {
     background-color: #FFE6F1;
 }
-.diagnosis-history-top {
-    background-color: #F4F0FE;
+.lung, .temperature, .heart {
+    border-radius: 1rem;
 }
 
+
+
+.diagnostic-list {
+    background-color: #FFFFFF;
+}
 .diag {
     display: grid;
     grid-template-columns: 2fr 3fr 1fr;
 }
-
-
-
-
-
 
 
 

@@ -64,12 +64,42 @@
         <!---------------------------------------------------------- DIAGNOSTIC! ---------------------------------------------------------->
         <div class="diagnostic">
             <div class="diagnosis-history">
-                <div>Diagnosis History</div>
+                <div class="diagnosis-history-text">Diagnosis History</div>
                 <div class="diagnosis-history-top">
-                    <div>Blood Pressure</div>
-                    <div>Last 6 Months</div>
-                    <img src="assets/ExpandIcon.svg">
-                    <canvas class="chart"></canvas>
+                    <div class="chart-left">
+                        <div class="chart-top">
+                            <div class="blood-pressure-text">Blood Pressure</div>
+                            <div class="chart-top-right">
+                                <div>Last 6 Months</div>
+                                <img src="assets/ExpandIcon.svg">
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas class="chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-right">
+                        <div>
+                            <div class="pink-circle"></div>
+                            <div>Systolic</div>
+                        </div>
+                        <div class="systolic-value"></div>
+                        <div>
+                            <img src="assets/ArrowUpIcon.svg">
+                            <div class="systolic-levels"></div>
+                        </div>
+                        <div class="break"></div>
+                        <div>
+                            <div class="purple-circle"></div>
+                            <div>Diastolic</div>
+                        </div>
+                        <div class="diastolic-value"></div>
+                        <div>
+                            <img src="assets/ArrowDownIcon.svg">
+                            <div class="diastolic-levels"></div>
+                        </div>
+                        
+                    </div>
                 </div>
                 <div class="diagnosis-history-bottom">
                     <div class="lung">
@@ -238,7 +268,11 @@
                     }
                 },
                 tension: .4,
+                maintainAspectRatio: false,
+                responsive: true,
                 }
+                
+                
         });
 
         })
