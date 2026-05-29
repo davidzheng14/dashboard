@@ -70,7 +70,7 @@
                         <div class="chart-top">
                             <div class="blood-pressure-text">Blood Pressure</div>
                             <div class="chart-top-right">
-                                <div>Last 6 Months</div>
+                                <div class="period-text">Last 6 Months</div>
                                 <img src="assets/ExpandIcon.svg">
                             </div>
                         </div>
@@ -79,22 +79,22 @@
                         </div>
                     </div>
                     <div class="chart-right">
-                        <div>
+                        <div class="systolic-text">
                             <div class="pink-circle"></div>
                             <div>Systolic</div>
                         </div>
                         <div class="systolic-value"></div>
-                        <div>
+                        <div class="systolic-levels-text">
                             <img src="assets/ArrowUpIcon.svg">
                             <div class="systolic-levels"></div>
                         </div>
                         <div class="break"></div>
-                        <div>
+                        <div class="diastolic-text">
                             <div class="purple-circle"></div>
                             <div>Diastolic</div>
                         </div>
                         <div class="diastolic-value"></div>
-                        <div>
+                        <div class="diastolic-levels-text">
                             <img src="assets/ArrowDownIcon.svg">
                             <div class="diastolic-levels"></div>
                         </div>
@@ -123,13 +123,13 @@
                 </div>
             </div>
             <div class="diagnostic-list">
-                <div>Diagnostic List</div>
-                <div class="diag">
+                <div class="diagnostic-list-text">Diagnostic List</div>
+                <div class="diagnostic-header">
                     <div>Problem/Diagnosis</div>
                     <div>Description</div>
                     <div>Status</div>
                 </div>
-                <div class="chartdata"></div>
+                <div class="problems-list"></div>
             </div>
         </div>
         <!---------------------------------------------------------- PATIENT! ---------------------------------------------------------->
@@ -240,40 +240,59 @@
             document.querySelector('.heart-rate').innerHTML = `<div>${patients[3].diagnosis_history[0].heart_rate.value} bpm</div>`;
             document.querySelector('.heart-levels').innerHTML = `<img src="assets/ArrowDownIcon.svg"><div>${patients[3].diagnosis_history[0].heart_rate.levels}</div>`;
 
-            document.querySelector('.chartdata').innerHTML = patients[3].diagnosis_history.map(x => `
-                <div>${x.blood_pressure.systolic.value}</div>
-            `).slice(0,6).reverse();
+            // document.querySelector('.chartdata').innerHTML = patients[3].diagnosis_history.map(x => `
+            //     <div>${x.blood_pressure.systolic.value}</div>
+            // `).slice(0,6).reverse();
+
+            document.querySelector('.systolic-value').innerHTML = patients[3].diagnosis_history[0].blood_pressure.systolic.value;
+            document.querySelector('.diastolic-value').innerHTML = patients[3].diagnosis_history[0].blood_pressure.diastolic.value;
+            document.querySelector('.systolic-levels').innerHTML = patients[3].diagnosis_history[0].blood_pressure.systolic.levels;
+            document.querySelector('.diastolic-levels').innerHTML = patients[3].diagnosis_history[0].blood_pressure.diastolic.levels;
 
             const ctx = document.getElementsByClassName('chart');
 
             new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Oct, 2023', 'Nov, 2023', 'Dec, 2023', 'Jan, 2024', 'Feb, 2024', 'Mar, 2024'],
-                datasets: [{
-                    label: 'Systolic',
-                    data: patients[3].diagnosis_history.map(x => x.blood_pressure.systolic.value).slice(0,6).reverse(),
-                    borderWidth: 1
-                },{
-                    label: 'Diastolic',
-                    data: patients[3].diagnosis_history.map(x => x.blood_pressure.diastolic.value).slice(0,6).reverse(),
-                    borderWidth: 1
-                }
-                ]
-                },
-            options: {
-                scales: {
-                    y: {
-                    beginAtZero: false
+                type: 'line',
+                data: {
+                    labels: ['Oct, 2023', 'Nov, 2023', 'Dec, 2023', 'Jan, 2024', 'Feb, 2024', 'Mar, 2024'],
+                    datasets: [{
+                        label: 'Systolic',
+                        data: patients[3].diagnosis_history.map(x => x.blood_pressure.systolic.value).slice(0,6).reverse(),
+                        borderColor: '#E66FD2',
+                        pointBackgroundColor: '#E66FD2'
+                    },{
+                        label: 'Diastolic',
+                        data: patients[3].diagnosis_history.map(x => x.blood_pressure.diastolic.value).slice(0,6).reverse(),
+                        borderColor: "#8C6FE6",
+                        pointBackgroundColor: "#8C6FE6"
                     }
-                },
-                tension: .4,
-                maintainAspectRatio: false,
-                responsive: true,
+                    ]
+                    },
+                options: {
+                    scales: {
+                        y: {
+                        beginAtZero: false
+                        }
+                    },
+                    tension: .4,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    borderWidth: 2,
+                    pointRadius: 5,
                 }
-                
-                
-        });
+            });
+
+            document.querySelector('.problems-list').innerHTML = patients[3].diagnostic_list.map(problem => `
+                <div class='problem'>
+                    <div>${problem.name}</div>
+                    <div>${problem.description}</div>
+                    <div>${problem.status}</div>
+                </div>
+
+            `).join('');
 
         })
         .catch(error => console.error(error));
