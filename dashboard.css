@@ -240,6 +240,14 @@ nav .nav-buttons .active {
     border-radius: 1rem;
     padding: 1rem;
 }
+.respiratory-rate-text,
+.temperature-text,
+.heart-rate-text {
+    font-weight: 500;
+}
+.heart-levels {
+    display: flex;
+}
 
 
 
